@@ -51,7 +51,7 @@ fun LoginPage(
 ) {
     val key = remember { mutableStateOf(TextFieldValue("")) }
     var errorMessage by remember { mutableStateOf("") }
-    val acceptedTerms = remember { mutableStateOf(!isFirstLogin) }
+    val acceptedTerms = remember { mutableStateOf(true) }
     var termsAcceptanceIsRequired by remember { mutableStateOf("") }
     val uri = LocalUriHandler.current
     val context = LocalContext.current
@@ -180,52 +180,6 @@ fun LoginPage(
             }
 
             Spacer(modifier = Modifier.height(20.dp))
-
-            if (isFirstLogin) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Checkbox(
-                        checked = acceptedTerms.value,
-                        onCheckedChange = { acceptedTerms.value = it }
-                    )
-
-                    val regularText =
-                        SpanStyle(color = MaterialTheme.colors.onBackground)
-
-                    val clickableTextStyle =
-                        SpanStyle(color = MaterialTheme.colors.primary)
-
-                    val annotatedTermsString = buildAnnotatedString {
-                        withStyle(regularText) {
-                            append(stringResource(R.string.i_accept_the))
-                        }
-
-                        withStyle(clickableTextStyle) {
-                            pushStringAnnotation("openTerms", "")
-                            append(stringResource(R.string.terms_of_use))
-                        }
-                    }
-
-                    ClickableText(
-                        text = annotatedTermsString
-                    ) { spanOffset ->
-                        annotatedTermsString.getStringAnnotations(spanOffset, spanOffset)
-                            .firstOrNull()
-                            ?.also { span ->
-                                if (span.tag == "openTerms") {
-                                    runCatching { uri.openUri("https://github.com/vitorpamplona/amethyst/blob/main/PRIVACY.md") }
-                                }
-                            }
-                    }
-                }
-
-                if (termsAcceptanceIsRequired.isNotBlank()) {
-                    Text(
-                        text = termsAcceptanceIsRequired,
-                        color = MaterialTheme.colors.error,
-                        style = MaterialTheme.typography.caption
-                    )
-                }
-            }
 
             if (isPackageInstalled(context, "org.torproject.android")) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
