@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:768341258853:android:5d07c35a37b24ff36b8c8c",
         "android_client_info": {
-          "package_name": "com.vitorpamplona.amethyst"
+          "package_name": "com.tonygiorgio.onyx"
         }
       },
       "oauth_client": [
@@ -38,7 +38,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:768341258853:android:e0200680f552484d6b8c8c",
         "android_client_info": {
-          "package_name": "com.vitorpamplona.amethyst.debug"
+          "package_name": "com.tonygiorgio.onyx.debug"
         }
       },
       "oauth_client": [
