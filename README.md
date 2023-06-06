@@ -1,20 +1,10 @@
-# Amethyst: Nostr client for Android
+# Onyx: Amethyst fork without censorship
 
 <img align="right" src="./docs/screenshots/home.png" data-canonical-src="./docs/screenshots/home.png" width="350px"/>
 
-Amethyst brings the best social network to your Android phone. Just insert your Nostr private key and start posting. 
+Onyx is a nostr client that is a fork of [Amethyst](https://github.com/vitorpamplona/amethyst/releases/latest)
 
-[<img src="./docs/design/obtainium.png"
-alt="Get it on Obtaininum"
-height="80">](https://github.com/ImranR98/Obtainium)
-[<img src="https://github.com/machiav3lli/oandbackupx/raw/034b226cea5c1b30eb4f6a6f313e4dadcbb0ece4/badge_github.png" alt="Get it on GitHub"
-height="80">](https://github.com/vitorpamplona/amethyst/releases)
-[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
-     alt="Get it on F-Droid"
-     height="80">](https://f-droid.org/packages/com.vitorpamplona.amethyst/)
-[<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png"
-     alt="Get it on Google Play"
-     height="80">](https://play.google.com/store/apps/details?id=com.vitorpamplona.amethyst)
+Get the latest APK from the [Releases Section](https://github.com/tonygiorgio/onyx/releases/latest).
 
 # Current Features
 
@@ -203,32 +193,4 @@ Information shared on nostr should be assumed permanent for privacy purposes. Th
 
 # Contributing
 
-[Issues](https://github.com/vitorpamplona/amethyst/issues) and [pull requests](https://github.com/vitorpamplona/amethyst/pulls) are very welcome.
-
-## Contributors
-
-<a align="center" href="https://github.com/vitorpamplona/amethyst/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=vitorpamplona/amethyst" />
-</a>
-
-# MIT License
-
-Copyright (c) 2023 Vitor Pamplona
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Only minor contributions are welcomed, this is meant to be a continuously updated rebase of the original project.
