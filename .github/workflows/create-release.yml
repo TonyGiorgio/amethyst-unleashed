@@ -87,7 +87,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} 
           asset_path: app/build/outputs/apk/play/release/app-play-universal-release-unsigned-signed.apk
-          asset_name: amethyst-googleplay-universal-${{ github.ref_name }}.apk
+          asset_name: onyx-googleplay-universal-${{ github.ref_name }}.apk
           asset_content_type: application/zip
 
       - name: Upload Play APK x86 Asset
@@ -98,7 +98,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: app/build/outputs/apk/play/release/app-play-x86-release-unsigned-signed.apk
-          asset_name: amethyst-googleplay-x86-${{ github.ref_name }}.apk
+          asset_name: onyx-googleplay-x86-${{ github.ref_name }}.apk
           asset_content_type: application/zip
 
       - name: Upload Play APK x86_64 Asset
@@ -109,7 +109,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: app/build/outputs/apk/play/release/app-play-x86_64-release-unsigned-signed.apk
-          asset_name: amethyst-googleplay-x86_64-${{ github.ref_name }}.apk
+          asset_name: onyx-googleplay-x86_64-${{ github.ref_name }}.apk
           asset_content_type: application/zip
 
       # F-Droid APK
@@ -121,7 +121,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: app/build/outputs/apk/fdroid/release/app-fdroid-universal-release-unsigned-signed.apk
-          asset_name: amethyst-fdroid-universal-${{ github.ref_name }}.apk
+          asset_name: onyx-fdroid-universal-${{ github.ref_name }}.apk
           asset_content_type: application/zip
 
       - name: Upload F-Droid APK x86 Asset
@@ -132,7 +132,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: app/build/outputs/apk/fdroid/release/app-fdroid-x86-release-unsigned-signed.apk
-          asset_name: amethyst-fdroid-x86-${{ github.ref_name }}.apk
+          asset_name: onyx-fdroid-x86-${{ github.ref_name }}.apk
           asset_content_type: application/zip
 
       - name: Upload F-Droid APK x86_64 Asset
@@ -143,7 +143,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: app/build/outputs/apk/fdroid/release/app-fdroid-x86_64-release-unsigned-signed.apk
-          asset_name: amethyst-fdroid-x86_64-${{ github.ref_name }}.apk
+          asset_name: onyx-fdroid-x86_64-${{ github.ref_name }}.apk
           asset_content_type: application/zip
 
 
@@ -157,7 +157,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: app/build/outputs/bundle/playRelease/app-play-release.aab
-          asset_name: amethyst-googleplay-${{ github.ref_name }}.aab
+          asset_name: onyx-googleplay-${{ github.ref_name }}.aab
           asset_content_type: application/zip
 
       # FDroid AAB
@@ -169,5 +169,5 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: app/build/outputs/bundle/fdroidRelease/app-fdroid-release.aab
-          asset_name: amethyst-fdroid-${{ github.ref_name }}.aab
+          asset_name: onyx-fdroid-${{ github.ref_name }}.aab
           asset_content_type: application/zip

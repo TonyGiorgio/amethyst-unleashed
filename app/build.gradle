@@ -10,7 +10,7 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.vitorpamplona.amethyst"
+        applicationId 'com.tonygiorgio.onyx'
         minSdk 26
         targetSdk 33
         versionCode 266
