@@ -24,7 +24,7 @@ class UrlUserTagTransformationTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.vitorpamplona.amethyst", appContext.packageName.removeSuffix(".debug"))
+        assertEquals("com.tonygiorgio.onyx", appContext.packageName.removeSuffix(".debug"))
     }
 
     @Test
