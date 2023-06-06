@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name_release">Amethyst</string>
-    <string name="app_name_debug">Amethyst Debug</string>
+    <string name="app_name_release">Onyx</string>
+    <string name="app_name_debug">Onyx Debug</string>
 </resources>
