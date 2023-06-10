@@ -17,7 +17,7 @@ class AntiSpamFilter {
     val spamMessages = LruCache<Int, Spammer>(1000)
 
     @Synchronized
-    fun isSpam(event: Event, relay: Relay?): Boolean {
+    fun isSpamCheck(event: Event, relay: Relay?): Boolean {
         checkNotInMainThread()
 
         val idHex = event.id

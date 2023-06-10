@@ -590,6 +590,16 @@ private fun DrawAdditionalInfo(
     val uri = LocalUriHandler.current
     val clipboardManager = LocalClipboardManager.current
 
+    val accountUserState by accountViewModel.account.userProfile().live().follows.observeAsState()
+    val accountLocalUserState by accountViewModel.accountLiveData.observeAsState()
+    val account = remember(accountLocalUserState) { accountLocalUserState?.account } ?: return
+
+    val isShadow by remember(accountUserState, accountLocalUserState) {
+        derivedStateOf {
+            account.isShadow(baseUser)
+        }
+    }
+
     (user.bestDisplayName() ?: user.bestUsername())?.let {
         Row(verticalAlignment = Alignment.Bottom, modifier = Modifier.padding(top = 7.dp)) {
             CreateTextWithEmoji(
@@ -662,6 +672,10 @@ private fun DrawAdditionalInfo(
                 modifier = Modifier.size(15.dp),
                 tint = MaterialTheme.colors.onSurface.copy(alpha = 0.32f)
             )
+        }
+
+        if (isShadow) {
+            ShadowButton()
         }
     }
 
@@ -1232,6 +1246,32 @@ private fun MessageButton(user: User, nav: (String) -> Unit) {
             stringResource(R.string.send_a_direct_message),
             modifier = Modifier.size(20.dp),
             tint = Color.White
+        )
+    }
+}
+
+@Composable
+private fun ShadowButton() {
+    val context = LocalContext.current
+    val scope = rememberCoroutineScope()
+
+    IconButton(
+        modifier = Modifier.size(25.dp),
+        onClick = {
+            scope.launch {
+                Toast.makeText(
+                    context,
+                    "User had been shadow banned by Amethyst",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+        }
+    ) {
+        Icon(
+            painter = painterResource(R.drawable.shadow_ban),
+            stringResource(R.string.shadowed_user),
+            modifier = Modifier.size(30.dp),
+            tint = MaterialTheme.colors.onSurface.copy(alpha = 0.32f)
         )
     }
 }

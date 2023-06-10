@@ -197,11 +197,12 @@ object LocalCache {
         // Already processed this event.
         if (note.event != null) return
 
-        if (antiSpam.isSpam(event, relay)) {
+        if (antiSpam.isSpamCheck(event, relay)) {
             relay?.let {
                 it.spamCounter++
             }
-            return
+            // Log it but don't do anything about it
+            // return
         }
 
         val replyTo = event.tagsWithoutCitations().mapNotNull { checkGetOrCreateNote(it) }
@@ -233,11 +234,12 @@ object LocalCache {
         // Already processed this event.
         if (note.event?.id() == event.id()) return
 
-        if (antiSpam.isSpam(event, relay)) {
+        if (antiSpam.isSpamCheck(event, relay)) {
             relay?.let {
                 it.spamCounter++
             }
-            return
+            // Log it but don't do anything about it
+            // return
         }
 
         val replyTo = event.tagsWithoutCitations().mapNotNull { checkGetOrCreateNote(it) }
@@ -263,11 +265,12 @@ object LocalCache {
         // Already processed this event.
         if (note.event != null) return
 
-        if (antiSpam.isSpam(event, relay)) {
+        if (antiSpam.isSpamCheck(event, relay)) {
             relay?.let {
                 it.spamCounter++
             }
-            return
+            // Log it but don't do anything about it
+            // return
         }
 
         val replyTo = event.tagsWithoutCitations().mapNotNull { checkGetOrCreateNote(it) }
@@ -662,11 +665,12 @@ object LocalCache {
         // Already processed this event.
         if (note.event != null) return
 
-        if (antiSpam.isSpam(event, relay)) {
+        if (antiSpam.isSpamCheck(event, relay)) {
             relay?.let {
                 it.spamCounter++
             }
-            return
+            // Log it but don't do anything about it
+            // return
         }
 
         val replyTo = event.tagsWithoutCitations()

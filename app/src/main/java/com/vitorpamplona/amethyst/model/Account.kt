@@ -50,6 +50,7 @@ class Account(
     val loggedIn: Persona,
     var followingChannels: Set<String> = DefaultChannels,
     var hiddenUsers: Set<String> = setOf(),
+    var shadowUsers: Set<String> = setOf(),
     var localRelays: Set<RelaySetupInfo> = Constants.defaultRelays.toSet(),
     var dontTranslateFrom: Set<String> = getLanguagesSpokenByUser(),
     var languagePreferences: Map<String, String> = mapOf(),
@@ -69,6 +70,7 @@ class Account(
     var showSensitiveContent: Boolean? = null
 ) {
     var transientHiddenUsers: Set<String> = setOf()
+    var transientShadowUsers: Set<String> = setOf()
 
     // Observers line up here.
     val live: AccountLiveData = AccountLiveData(this)
@@ -1048,6 +1050,9 @@ class Account(
     fun isHidden(user: User) = isHidden(user.pubkeyHex)
     fun isHidden(userHex: String) = userHex in hiddenUsers || userHex in transientHiddenUsers
 
+    fun isShadow(user: User) = isShadow(user.pubkeyHex)
+    fun isShadow(userHex: String) = userHex in shadowUsers || userHex in transientShadowUsers
+
     fun followingKeySet(): Set<HexKey> {
         return userProfile().cachedFollowingKeySet()
     }
@@ -1139,10 +1144,10 @@ class Account(
         LocalCache.antiSpam.liveSpam.observeForever {
             GlobalScope.launch(Dispatchers.IO) {
                 it.cache.spamMessages.snapshot().values.forEach {
-                    if (it.pubkeyHex !in transientHiddenUsers && it.duplicatedMessages.size >= 5) {
-                        val userToBlock = LocalCache.getOrCreateUser(it.pubkeyHex)
-                        if (userToBlock != userProfile() && userToBlock.pubkeyHex !in followingKeySet()) {
-                            transientHiddenUsers = transientHiddenUsers + it.pubkeyHex
+                    if (it.pubkeyHex !in transientShadowUsers && it.duplicatedMessages.size >= 5) {
+                        val userToShadow = LocalCache.getOrCreateUser(it.pubkeyHex)
+                        if (userToShadow != userProfile() && userToShadow.pubkeyHex !in followingKeySet()) {
+                            transientShadowUsers = transientShadowUsers + it.pubkeyHex
                             live.invalidateData()
                         }
                     }
