@@ -1050,8 +1050,11 @@ class Account(
     fun isHidden(user: User) = isHidden(user.pubkeyHex)
     fun isHidden(userHex: String) = userHex in hiddenUsers || userHex in transientHiddenUsers
 
-    fun isShadow(user: User) = isShadow(user.pubkeyHex)
+    fun isShadow(user: User) = isShadow(user.pubkeyHex) || isReportBanned(user)
     fun isShadow(userHex: String) = userHex in shadowUsers || userHex in transientShadowUsers
+    fun isReportBanned(user: User): Boolean {
+        return user.countReportAuthorsBy(followingKeySet()) >= 5
+    }
 
     fun followingKeySet(): Set<HexKey> {
         return userProfile().cachedFollowingKeySet()
