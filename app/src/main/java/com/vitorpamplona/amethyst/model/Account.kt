@@ -71,8 +71,8 @@ class Account(
     var proxy: Proxy?,
     var proxyPort: Int,
     var showSensitiveContent: Boolean? = null,
-    var warnAboutPostsWithReports: Boolean = true,
-    var filterSpamFromStrangers: Boolean = true,
+    var warnAboutPostsWithReports: Boolean = false,
+    var filterSpamFromStrangers: Boolean = false,
     var lastReadPerRoute: Map<String, Long> = mapOf<String, Long>()
 ) {
     var transientHiddenUsers: Set<String> = setOf()
