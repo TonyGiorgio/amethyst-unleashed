@@ -374,8 +374,8 @@ object LocalPreferences {
             } else {
                 null
             }
-            val filterSpam = getBoolean(PrefKeys.FILTER_SPAM_FROM_STRANGERS, true)
-            val warnAboutReports = getBoolean(PrefKeys.WARN_ABOUT_REPORTS, true)
+            val filterSpam = getBoolean(PrefKeys.FILTER_SPAM_FROM_STRANGERS, false)
+            val warnAboutReports = getBoolean(PrefKeys.WARN_ABOUT_REPORTS, false)
 
             val lastReadPerRoute = try {
                 getString(PrefKeys.LAST_READ_PER_ROUTE, null)?.let {
