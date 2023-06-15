@@ -1,8 +1,8 @@
 package com.vitorpamplona.amethyst
 
 object OptOutFromFilters {
-    var warnAboutPostsWithReports: Boolean = true
-    var filterSpamFromStrangers: Boolean = true
+    var warnAboutPostsWithReports: Boolean = false
+    var filterSpamFromStrangers: Boolean = false
 
     fun start(warnAboutReports: Boolean, filterSpam: Boolean) {
         warnAboutPostsWithReports = warnAboutReports
